@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de prubea</title>
-    <script src="acciones.mjs" defer></script>
+    <link rel="stylesheet" href="formulario.css">
+    <script type="module" src="acciones.mjs" defer></script>
 </head>
 <body>
     <header></header>
     <main>
-        <form  id="formulario">
+        <form  id="formulario" class="formulario">
             <fieldset>
                 <label for="nombre" >Nombre: </label>
-                <input type="text" id="nomnre" 
+                <input type="text" id="nombre" 
                     data-ayuda ="Introduce un nombre válido"
-                    data-validacion="nombreBonito"
-                    name="nombre" required
+                    data-validacion="vacio,nombre,longitudNombre"
+                    name="nombre" 
                 ><br /><br />
                 <label for="apellidos" >Apellidos: </label>
                 <input type="text" id="apellidos" name="apellidos"><br /><br />
@@ -27,8 +28,8 @@
                 <label for="email">Email: </label>
                 <input type="email" id="email" 
                     data-ayuda ="Introduce un email válido"
-                    data-validacion="emailBonito"
-                    name="email" required
+                    data-validacion="vacio,email"
+                    name="email" 
                 > <br /><br />
                 <label for="contraseña1">Contraseña1: </label>
                 <input type="password" id="contraseña1" name="contraseña1"> <br /><br />
