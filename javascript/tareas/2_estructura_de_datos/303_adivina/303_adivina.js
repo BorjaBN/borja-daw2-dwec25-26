@@ -21,3 +21,10 @@ for (let i = 0; i < 5; i++) {
   let numero = Number(prompt("Escribe un número:"));
   numerosUsuario.push(numero);
 }
+
+if (numerosUsuario == numerosAleatorios){
+  numeroAciertos = 
+  console.log("Has acertado " )
+} else {
+
+}
