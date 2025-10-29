@@ -5,31 +5,33 @@ const prompt = require('prompt-sync')(); //Poner esto siempre para que funcione 
 
 
 // 1ª Parte
-let equipo = [];
+const equipo = new Map();
 let jugador = prompt("Escribe el nombre del jugador del equipo:");
 
-while (jugador !== "" && equipo.length <= 10){ //Para que me salgan 11 jugadores, máximo  en futbol
+while (jugador !== "" && equipo.size <= 10){ //Para que me salgan 11 jugadores, máximo  en futbol
+                                            //Acuerdate cuando leas esto que map no tiene length, tiene size
+    let numero = prompt(`Introduce el número de dorsal para ${jugador}:`);
+        
+        if (equipo.has(Number(numero))) { // Este método me devuelve un boolean si está o no en el amp
+        console.log(`Ya hay un jugador con el dorsal ${numero}.`);
+        } else {
+            equipo.set(Number(numero), jugador); //El método set de los mapas es para guardarme lo introducido como pares clave valor.
+            console.log(`${jugador} se ha añadido con el dorsal ${numero}.`);
+        }
+    console.log("-----------------------------");
+    jugador = prompt("Escribe el nombre del siguiente jugador: ");
+    console.log("-----------------------------");
 
-    if (equipo.includes(jugador)){
-        console.log( jugador + " ya existe en la lista de jugadores del equipo.");
-    } else {
-        equipo.push(jugador);
-        console.log(jugador + " se ha añadido a la lista de jugadores del equipo.");
+} 
+// Intenté comprobar que no se repitiera el nombre, 
+// pero al tenerlo de valor y no de clave me daba siempre
+// true, a si que como no es requisito lo eliminé :) 
 
-    }
-    jugador = prompt("Escribe otro jugador que quieres añadir a la lista de jugadores del equipo: "); 
-    //Si no le añadimos una manera de "refrescar" el valor de elemento, 
-    //se queda con el valor puesto de primeras y hace el bucle infinito.
-}
-// Bucle reutilizado del ejercicio anterior, solo cambié algunos datos
+console.log(equipo);
+console.log("-----------------------------");
 
-console.log("Estos son tus jugadores: " + equipo.sort());
+   
+// 2ª Parte
 
-//2ª Parte
 
-let numeroDorsal = prompt("Escribe el número del dorsal quieres añadir: ")
 
-while (numeroDorsal != 0){
-
-    
-}
