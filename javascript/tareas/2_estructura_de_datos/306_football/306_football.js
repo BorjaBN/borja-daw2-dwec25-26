@@ -6,6 +6,7 @@ const prompt = require('prompt-sync')(); //Poner esto siempre para que funcione 
 
 // 1ª Parte
 const equipo = new Map();
+console.log("Si dejas en blanco se termina")
 let jugador = prompt("Escribe el nombre del jugador del equipo:");
 
 while (jugador !== "" && equipo.size <= 10){ //Para que me salgan 11 jugadores, máximo  en futbol
@@ -33,5 +34,18 @@ console.log("-----------------------------");
    
 // 2ª Parte
 
+console.log("Si pones 0 se termina")
 
+let consulta = prompt("Escribe el número del jugador que quieres consultar:");
 
+while (consulta !== "0") { // Acordarse de problemas con poner 0 porque promt solo recoge texto, entonces tiene que ser entrecomillado !!!!
+    if (equipo.has(Number(consulta))) {
+        console.log("Ese número lo tiene " + equipo.get(Number(consulta)));
+    } else {
+        console.log("No hay ningún jugador con ese número")
+    }
+
+    console.log("-----------------------------");
+    consulta = prompt("Escribe el siguiente número que quieras comprobar: ");
+    console.log("-----------------------------");
+}

@@ -22,9 +22,17 @@ for (let i = 0; i < 5; i++) {
   numerosUsuario.push(numero);
 }
 
-if (numerosUsuario == numerosAleatorios){
-  numeroAciertos = 
-  console.log("Has acertado " )
-} else {
 
+let aciertos = [];
+for (let i = 0; i < numerosUsuario.length; i++){
+  if (numerosAleatorios.includes(numerosUsuario[i])) {
+    aciertos.push(numerosUsuario[i])
+  }
 }
+
+console.log("                   ")
+console.log("Números aleatorios: " + numerosAleatorios);
+console.log("----------------------------------------")
+console.log("Tus números: ", numerosUsuario);
+console.log("----------------------------------------")
+console.log("Has acertado " + aciertos.length + " veces");
