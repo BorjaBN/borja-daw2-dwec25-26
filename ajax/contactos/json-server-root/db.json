@@ -1,0 +1,17 @@
+{
+  "contactos": [
+    {
+      "id": 1,
+      "nombre": "Paco",
+      "apellidos": "García Fuentes",
+      "empresa": "IES Castelar",
+      "puesto": "Estudiante",
+      "web": "http://www.google.es",
+      "notas": "No le gusta que le llamen",
+      "direccion": "C/Mi calle",
+      "Poblacion": "Badajoz",
+      "Provincia": "Badajoz",
+      "CP": "06006"
+    }
+  ]
+}
