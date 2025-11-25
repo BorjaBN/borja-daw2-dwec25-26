@@ -1,4 +1,4 @@
-"user strict"
+"use strict"
 const prompt = require('prompt-sync')();
 
 
@@ -8,12 +8,12 @@ let arrayNumeros = [];
 
 let valorIntroducido = Number(prompt("Introduce un número: "));
 
-while (valorIntroducido != 0){
-    arrayNumeros.push(valorIntroducido);
+while (valorIntroducido !== 0){
+    arrayNumeros.push(Number(valorIntroducido));
 
 
     console.log("---------------------------------------");
-    console.log(Number(valorIntroducido("Introduce otro número")));
+    valorIntroducido = Number(prompt("Introduce un número: "));
     console.log("---------------------------------------");
 
 
