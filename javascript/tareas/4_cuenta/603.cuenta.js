@@ -1,10 +1,9 @@
 "use strict"
 
 //-------------------------------------------------------------------------------------------------------------
-//---------------------------------- CONSTANTES Y VARIABLES----------------------------------------------------
+//---------------------------------- CLASE CUENTA ----------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------
 
-const prompt = require('prompt-sync')(); /*Carga el módulo. Función de node.js para leer lo escrito por consola*/ 
 /**
  * Clase llamada Cuenta
  *  - sus atributos son titular y cantidad
@@ -13,14 +12,14 @@ const prompt = require('prompt-sync')(); /*Carga el módulo. Función de node.js
  */
 class Cuenta {
 
-    // los atirbutos
-    titular; 
-    cantidad;
-
-    // El constructor de la clase. Define los atributps titular y cantidad 
-    constructor(titular, cantidad){
-        this.titular = titular;
-        this.cantidad = cantidad;
+    /** Contructor de la clase Cuenta
+     *  - Los siguientes son sus atributos
+     * @param {*} titular : Atributo que define el nombre del titular de la cuenta (este es obligatorio)
+     * @param {*} cantidad : cantidad de dinero que hay en la cuenta (este es opcionar)
+     */
+    constructor(titular, cantidad = 0){
+        this._titular = titular;
+        this._cantidad = cantidad;
 
     }
 
@@ -28,7 +27,9 @@ class Cuenta {
     // getter y setter del atributo titular
     
     get titular() {
-        return this._titular;
+        return this._titular; 
+        //Importantisimo, acuerdate del bucle infinito que se crea
+        // Hecho así para llamar al atributo y no al propio getter (o setter)
     }
 
     set titular(nuevoTitular) {
@@ -55,4 +56,72 @@ class Cuenta {
         }
     }
 /*--------------------------------------------- TOSTRING -----------------------------------------------------------------*/
+    
+    // Así "mostramos el objeto tal y como es" 
+    toString(){
+        return `Cuenta de ${this.titular} con saldo: ${this.cantidad} €`; // Si llamamos al atributo del constructor nos cargamos 
+                                                                          // al validaciones puestas en los setters
+    }
+
+
+/*--------------------------------------------- MÉTODOS ESPECIALES -----------------------------------------------------------------*/
+
+
+
+    /** Método para ingressar una cantidad de la cuenta
+     *  - Impedimos que sea cantidad negativa o nada.
+     *  - Que la cantidadIngresada es +? se le suma al saldo
+     * 
+     * @param {*} cantidad 
+     */
+    ingresar(cantidadIngresada) {
+        if (cantidadIngresada > 0) {
+            this._cantidad += cantidadIngresada;
+        } else {
+            console.log("No se puede ingresar una cantidad negativa o cero");
+        }
+    }
+
+
+
+    /** Método para retirar una cantidad de la cuenta
+     *  - Impedimos que sea una cantidad negativa o nada.
+     *  - Si el resultado de la resta del saldo de 
+     *  la cuenta - lo que me piden retirar es mayor o igual a 0, se hace.
+     * 
+     * @param {*} cantidadRetirada 
+     */
+    retirar(cantidadRetirada) {
+        if (cantidadRetirada > 0) {
+            if (this._cantidad - cantidadRetirada >= 0) {
+                this._cantidad -= cantidadRetirada;
+            } else {
+                this._cantidad = 0;
+            }
+        } else {
+            console.log("No se puede retirar una cantidad negativa o cero");
+        }
+    }
+
 }
+
+/*--------------------------------------------- MODIFICACIONES ADICIONALES -----------------------------------------------------------------*/
+
+let cuenta1 = new Cuenta("Borja", 100);
+console.log(cuenta1.toString());
+
+// Ingresar 10
+cuenta1.ingresar(10);
+console.log(cuenta1.toString());
+
+// Retirar 50
+cuenta1.retirar(50);
+console.log(cuenta1.toString());
+
+// Ingresar 15
+cuenta1.ingresar(15);
+console.log(cuenta1.toString());
+
+// Retirar 100
+cuenta1.retirar(100);
+console.log(cuenta1.toString());
