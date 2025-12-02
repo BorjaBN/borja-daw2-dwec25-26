@@ -1,7 +1,7 @@
 {
   "contactos": [
     {
-      "id": 1,
+      "id": "1",
       "nombre": "Paco",
       "apellidos": "García Fuentes",
       "empresa": "IES Castelar",
@@ -12,6 +12,89 @@
       "Poblacion": "Badajoz",
       "Provincia": "Badajoz",
       "CP": "06006"
+    },
+    {
+      "nombre": "Miguel",
+      "apellidos": "Sanchez",
+      "id": "3"
+    },
+    {
+      "nombre": "Miguel",
+      "apellidos": "Sanchez",
+      "id": "4"
+    },
+    {
+      "nombre": "Miguel",
+      "apellidos": "Sanchez",
+      "id": "5"
+    },
+    {
+      "nombre": "Miguel",
+      "apellidos": "Sanchez",
+      "id": "6"
+    },
+    {
+      "id": "7",
+      "nombre": "Antonio",
+      "apellidos": "Martínez Martínez",
+      "empresa": "Empresa S.L.",
+      "puesto": "Estudiante",
+      "web": "http://www.google.es",
+      "notas": "No le gusta que le llamen",
+      "direccion": "C/Mi calle",
+      "Poblacion": "Badajoz",
+      "Provincia": "Badajoz",
+      "CP": "06006"
+    },
+    {
+      "nombre": "sinonosi",
+      "apellidos": "e32r434t3",
+      "empresa": "12e32r43t53",
+      "id": "jV1RAcP"
+    },
+    {
+      "nombre": "sinonosi2",
+      "apellidos": "e32r434t3",
+      "empresa": "12e32r43t53",
+      "id": "jkl4Miw"
+    },
+    {
+      "nombre": "sinonosi22",
+      "apellidos": "e32r434t33",
+      "empresa": "12e32r43t534",
+      "id": "MG4yNNq"
+    },
+    {
+      "nombre": "1234",
+      "apellidos": "4321",
+      "empresa": "123dsfdg",
+      "id": "PGipLmJ"
+    }
+  ],
+  "telefonos": [
+    {
+      "id": "1",
+      "numero": "666 777 888",
+      "contactoId": 1
+    }
+  ],
+  "correos": [
+    {
+      "id": "1",
+      "correo": "micorreo@iescastelar.com",
+      "contactoId": 1
+    }
+  ],
+  "users": [
+    {
+      "email": "manolo@mail.com",
+      "password": "$2a$10$yHZqlRkKrzcqllZddQdEi.r1o1aRKFoEyasPGsrBIMLk..j5J4EYy",
+      "id": "1"
+    },
+    {
+      "email": "paco@mail.com",
+      "password": "$2a$10$NtByBEzddWZ9bW4TQbX2xe/HGduULQu6c.j2OyVZOjyEm.MH7HpQO",
+      "id": "2"
     }
   ]
 }
