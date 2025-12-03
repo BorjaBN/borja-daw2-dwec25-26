@@ -1,17 +1,17 @@
-export {get, post, del};
+
+export { get, post, put, del }
 
 /**
- * Implementación de métdo GET
+ * Implementación de método GET
  */
 function get(url) {
     return fetch(url);
 }
 
-
 /**
- * Implementación de métdo POST
+ * Implementación de método POST
  */
-function post(url, objeto){
+function post(url, objeto) {
     return fetch(
         url,
         {
@@ -24,20 +24,28 @@ function post(url, objeto){
     );
 }
 
-
-/**
- * Implementación de métdo DELETE
- */
-function del(url, id){
+function put(url, objeto){
     return fetch(
-        url+"/"+id,
+        url,
         {
-            method: "DELETE"
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(objeto)
         }
     );
 }
 
 
 /**
- * Implementación de métdo GET
+ * Implementación de método DELETE
  */
+function del(url, id) {
+    return fetch(
+        url+"/"+id, 
+        {
+            method: "DELETE"
+        }
+    );
+}

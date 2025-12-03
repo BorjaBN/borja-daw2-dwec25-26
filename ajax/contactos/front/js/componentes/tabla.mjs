@@ -1,4 +1,5 @@
-import * as http from "../lib/http.mjs"
+import * as http from "../lib/http.mjs";
+
 /**
  * Renderiza una tabla pasados los datos
  */
@@ -20,8 +21,8 @@ export class Tabla {
     // Número de registros por página
     #regPorPagina;
 
-    // Filtro de búsqueda
-    #filtroRegistro = null
+    // Filtro
+    #filtroRegistro = null;
 
     // Última página
     #ultimaPagina = false;
@@ -52,6 +53,7 @@ export class Tabla {
      * Renderiza la tabla en el elemento objetivo
      */
     renderizar() {
+        
         // Carga los contactos
         http.get(this.#urlRecurso)
             .then(response => response.json())
@@ -66,14 +68,6 @@ export class Tabla {
                 // Asigna el contenido 
                 $(this.#elementoObjetivo).html(html);
             });  
-    }
-
-    /**
-     * Calcula la URL del recurso añadiendo información de paginación, filtros,
-     * etc.
-     */
-    get #urlRecurso() {
-        return `${this.#url_recurso}?_page=${this.#pagina}&_limit=${this.#regPorPagina}&q=${this.#filtroRegistro}`;
     }
 
     //-----------------------------------------------------------
@@ -107,23 +101,36 @@ export class Tabla {
         }
     }
 
-    añadirFiltro(filtro){
+    /**
+     * Añade un filtro a la tabla para búsqueda de texto completa
+     */
+    añadirFiltro(filtro) {
 
-        //Asigna el filtro
-        this.#filtroRegistro = (filtro && filtro.length > 0)? filtro:null;
+        // Asigna el filtro
+        this.#filtroRegistro = (filtro && filtro.length > 0)?filtro:null;
 
-        //Lo movemos a la pagina 1
+        // Lo movemos a la página 1
         this.#pagina = TABLA_PRIMERA_PAGINA;
 
-        //Renderiza el nuevo resultado
+        // Renderiza el nuevo resultado
         this.renderizar();
     }
-
-
 
     //--------------------------------------------------------
     // Funciones de utilidad
     //--------------------------------------------------------
+    
+    /**
+     * Calcula la URL del recurso añadiendo información de paginación, filtros,
+     * etc.
+     */
+    get #urlRecurso() {
+
+        const filtro = (this.#filtroRegistro != null)?`&q=${this.#filtroRegistro}`:"";
+
+        return `${this.#url_recurso}?_page=${this.#pagina}&_limit=${this.#regPorPagina}${filtro}`
+    }
+
     #esUltimaPagina(datos) {
         return datos.length < this.#regPorPagina;
     }
