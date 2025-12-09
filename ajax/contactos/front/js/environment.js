@@ -4,6 +4,7 @@
 
 /** Dirección del backend */
 const URL_BACKEND="http://localhost:3000";
+const URL_LOGIN="http://localhost:3000/login";
 
 
 //-------------------------------------------------------------

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
+
 
     <!-- Hojas de estilos -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -25,56 +26,37 @@
     <script src="../../js/environment.js" defer></script>
     <script src="../../js/app.js" defer></script>
 
-    <script type="module" src="contactos.mjs"></script>
+    <script type="module" src="login.mjs"></script>
+
 </head>
-<body>   
+<body class="bg-light d-flex justify-content-center align-items-center vh-100">
 
-    <!-- Creo un contenedor que se estira todo el ancho -->
-    <div class="container-fluid m-3">
-        <div class="row justify-content-between">
-    
-        <!-- Buscador -->
-        <div id="buscador" class="col"></div>
-    
-        <!-- Para dar de alta nuevos contactos -->
-        <div class="col-1 text-right">
-            <button id="btAnadir" type="button" class="btn btn-success rounded-circle">
-            <i class="bi-person-plus"></i>
-            </button>      
-        </div>  
+    <div class="card shadow" style="width: 22rem;">
+        <div class="card-body">
+            <h4 class="text-center mb-4">Iniciar sesión</h4>
 
-        <!-- Para dar cerrar contacto -->
-        <div class="col-1 text-right">
-            <button id="btCerrarSesion" type="button" class="btn btn-success rounded-circle">
-            <i class="bi bi-box-arrow-right"></i>
-            </button>      
-        </div> 
-        
+            <form id="formlogin">
+                <div class="mb-3">
+                    <label for="login" class="form-label">Usuario</label>
+                    <input type="text" class="form-control" id="email" name="email" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">
+                    <i class="bi bi-box-arrow-in-right me-1"></i> Entrar
+                </button>
+
+                <div class="text-center mt-3">
+                    <a href="#" class="small">Crear una cuenta</a>
+                </div>
+            </form>
         </div>
     </div>
 
-
-    <table class="table table-striped table-hover">
-        <thead>
-              <tr>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Apellidos</th>
-                  <th scope="col">Empresa</th>
-                  <th scope="col"></th>
-                  <th scope="col"></th>
-              </tr>               
-        </thead>
-        <tbody id="contactos">
-            <!-- Aquí nuestro código va a insertar los contactos -->
-        </tbody>
-    </table>
-
-    <!-- Separador. Lo pongo para que la página quede mejor cuando no hay datos. -->
-    <hr class="mt-2 mb-2 text-secondary" />
-
-    <!-- Espacio para colocar el paginador -->
-    <div id="paginador"></div>
-
-
 </body>
+
 </html>

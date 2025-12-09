@@ -89,6 +89,13 @@ function onEliminarContacto() {
   console.log("eliminar contacto" + id);
 }
 
+/**
+ * Cierra la sesión en la aplicación
+ */
+function onCerrarSesion() {
+  cerrarSesion();
+}
+
 
 //--------------------------------------------------------------
 // Funciones de utilidad
