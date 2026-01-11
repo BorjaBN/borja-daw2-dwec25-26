@@ -1,0 +1,63 @@
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;  
+  height: 100vh;
+  margin: 0;
+  background-color: #d3d2d2;
+}
+
+#marcador {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#marcador h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  text-align: center;
+}
+
+#marcaje {
+  display: flex;
+  gap: 25px;
+  font-size: 18px;
+  align-items: center;
+}
+
+#marcaje_x, #marcaje_o {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+#tablero {
+  height: 60dvh;
+  width: 60dvw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.casilla {
+  border: 2px solid #333;
+  font-size: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: white;
+  user-select: none;
+}
+
+#mensaje {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
