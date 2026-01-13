@@ -12,5 +12,4 @@ export class MenuComponent {
     // Genera evento de cerrar sesión
     this.onCerrarSesion.emit();
   }
-
 }

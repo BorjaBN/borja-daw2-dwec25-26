@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'contactosApp';
+  titulo = 'contactosApp';
 
   numero: number = 0;                 // Este atributo lo vamos a utilizar 
                                       // en un ejemplo
@@ -17,5 +17,5 @@ export class AppComponent {
 
   restar(v: number) {
     this.numero--;
-  }                                    
+  }                                   
 }
