@@ -1,20 +1,11 @@
-import { Injectable } from '@angular/core';
-
-/** Todo esto es un servicio global de dialogos para:
- *  - Mostrar alertas 
- *  - Confirmaciones (afirmar o cancelar)
- *  - Toast
- */
-
+import { Component, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DialogComponent {
 
-  // -------------------------- Copia y pega de angular 36- dialoge.service ---------------------------------------
-
-    private HTML_MODAL_ALERT = `
+ private HTML_MODAL_ALERT = `
     <div class="modal fade" id="modalAlert" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -65,16 +56,14 @@ export class DialogComponent {
       </div>
     </div>
   </div>
-  `;
-
-  //--------------------------------------------------------------------------------------------------------------//
+  `
 
   /**
    * Muestra un mensaje
    * 
    * @param mensaje 
    * @param titulo 
-  */
+   */
   mostrarMensaje(mensaje: string, titulo: string = 'Advertencia') : void {
 
     // Si no tengo insertado el alert lo inserto en el cuerpo
@@ -92,15 +81,18 @@ export class DialogComponent {
   
       $('#modalAlert').modal('show');  
     }
-  }
+  }  
 
-  /** Muestra un mensaje de confirmación
-   * 
-   * @param mensaje 
-   * @param titulo 
-   * @param accion 
-   */
-  solicitarConfirmacion(mensaje: string, titulo: string, accion: any) {
+
+/**
+ * Crea un cuadro de diálogo de confirmación. Pasa como parámetro la acción a ejecutar si se confirma
+ * positivamente..
+ * 
+ * @param mensaje Mensaje a mostrar
+ * @param titulo Título del diálogo
+ * @param accion Callback a ejecutar si se confirma la acción
+ */  
+mostrarDialogoConfirmacion(mensaje: string, titulo: string, accion: any) {
     
     // Si no está insertado, lo inserto
     if(!$('#modalConfirmar').length) {
@@ -133,22 +125,21 @@ export class DialogComponent {
   
       $('#modalConfirmar').modal('show');  
     }
-  }
+  }  
 
+ /**
+  * Muestra un mensaje en formato Toast
+  * 
+  * @param mensaje 
+  */
+  mostrarToast(mensaje: string) : void {
 
-  /**
-   * Muestra un mensaje en formato Toast
-   * 
-   * @param mensaje 
-   */
-   mostrarToast(mensaje: string) : void {
+   // Si no tengo insertado el alert lo inserto en el cuerpo
+   if(!$('#__Toast').length) {
 
-    // Si no tengo insertado el alert lo inserto en el cuerpo
-    if(!$('#__Toast').length) {
-
-      // Esto añade al body el HTML del alert
-      $('body').append( this.HTML_TOAST );           
-    }    
+    // Esto añade al body el HTML del alert
+     $('body').append( this.HTML_TOAST );           
+   }    
 
     _mostrarToast();
 
@@ -156,8 +147,5 @@ export class DialogComponent {
       $('#__Toast .toast-body').text(mensaje);  
       $('#__Toast').toast('show');  
     }
-  }
-
-
-
+  }  
 }

@@ -11,8 +11,7 @@ export class BuscadorComponent implements OnInit {
 
   @Input() placeholder: string = '';
 
-  @Output() onBusquedaEjecutada: EventEmitter<string> = new EventEmitter(); 
-  //EventEmitter<string> emite un evento de tipo string
+  @Output() onBusquedaEjecutada: EventEmitter<string> = new EventEmitter();
 
   constructor() { }
   

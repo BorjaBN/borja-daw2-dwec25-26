@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Contacto } from '../../interfaces/contacto.interface';
-import { DialogService } from 'src/app/shared/services/dialog.service';
+import { DialogComponent } from '../../../shared/services/dialog/dialog.component';
 
 @Component({
   selector: 'app-tabla-contactos',
@@ -8,10 +8,15 @@ import { DialogService } from 'src/app/shared/services/dialog.service';
 })
 export class TablaContactosComponent {
 
+  constructor(
+    private dialogService: DialogComponent // Servicio de diálogos
+  ) { }
+
   /**
    * Lista de contactos
    */
   @Input() contactos: Contacto [] = [];
+  @Output() onBorrarContacto: EventEmitter<Number> = new EventEmitter();
 
   /**
    * Borra el contacto en la posición "indice"
@@ -20,11 +25,11 @@ export class TablaContactosComponent {
    */
   borrarContacto(indice : number) : void {
     this.dialogService.mostrarDialogoConfirmacion(
-      "¿Seguro que quiere eliminar el contacto?",
+      "¿Seguro que quiere eliminar el contacto?", 
       "ADVERTENCIA", () => {
-        this.
+          this.onBorrarContacto.emit(this.contactos[indice].id );
       }
-    )
+    ); 
   }
 
 }
