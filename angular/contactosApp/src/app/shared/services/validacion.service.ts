@@ -12,6 +12,7 @@ export class ValidacionService {
     required: "Campo requerido"
   }
 
+
   constructor() { }
 
   //---------------------------------------------------------------
@@ -26,28 +27,31 @@ export class ValidacionService {
     this.mensajesError[clave] = valor;
   }
 
-  validarEmpiezaMayuscula(control: FormControl) : ValidationErrors | null {
-    
-    // Obtiene el valor en el control
-    const inicial :string = control.value?.trim()[0];     
   
-    // Si el valor no pasa la validación, tenemos problemas
-    if(inicial && inicial != inicial.toUpperCase()) {
+  //---------------------------------------------------------------
+  // Validar funciones
+  //---------------------------------------------------------------  
+  validarEmpiezaMayuscula(control: FormControl) : ValidationErrors | null {
       
-      // Rengo que devolver un objeto con el error
-      return {
-        // El atributo indica la validación que no se ha pasado
-        // Los campos tendrán estos errores por lo que se puede mostrar un mensaje
-        noEmpiezaMayuscula: true
-      }  
-    }
+      // Obtiene el valor en el control
+      const inicial :string = control.value?.trim()[0];     
 
-    // Null implica que todo OK. Nada que notificar
-    return null;
+      // Si el valor no pasa la validación, tenemos problemas
+      if(inicial && inicial != inicial.toUpperCase()) {
+        
+        // Rengo que devolver un objeto con el error
+        return {
+          // El atributo indica la validación que no se ha pasado
+          // Los campos tendrán estos errores por lo que se puede mostrar un mensaje
+          noEmpiezaMayuscula: true
+        }  
+      }
+  
+      // Null implica que todo OK. Nada que notificar
+      return null;
   }
 
-  
-    camposNoIguales(campo1: string, campo2: string) {
+  camposNoIguales(campo1: string, campo2: string) {
     
     // Retorna una función que trata el formgroup que va a hacer las comprobaciones
     return ( formGroup : AbstractControl): ValidationErrors | null => {
@@ -78,7 +82,8 @@ export class ValidacionService {
 
       return null;
     }
-  }
-
+  }  
 
 }
+
+

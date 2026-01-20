@@ -1,56 +1,63 @@
 <form (ngSubmit)="guardar()" [formGroup]="formulario" class="container" autocomplete="off">
     <div class="row">
-        <div class="col-md12 mb-3">
-            <label for="nombre" class="form-label">Nombre: </label>
+        <div class="col-md-12 mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
 
             <!-- El título -->
-            <input formControlName="nombre" type="text" class="form-control" >
+            <input formControlName="nombre" type="text" class="form-control">
             <span class="form-text text-danger" *ngIf="esCampoNoValido('nombre')">{{ mensajeErrorCampo('nombre') }}</span>
         </div>
     </div>
-
     <div class="row">
-        <div class="col-md12 mb-3">
-            <label for="apellidos" class="form-label">Apellidos: </label>
+        <div class="col-md-12 mb-3">
+            <label for="apellidos" class="form-label">Apellidos</label>
 
             <!-- El título -->
-            <input formControlName="apellidos" type="text" class="form-control" >
+            <input formControlName="apellidos" type="text" class="form-control">
         </div>
     </div>
-
     <div class="row">
-        <div class="col-md12 mb-3">
-            <label for="telefono" class="form-label">Teléfono: </label>
+        <div class="col-md-12 mb-3">
+            <label for="Teléfono" class="form-label">Teléfono</label>
 
             <!-- El título -->
-            <input formControlName="telefono" type="text" class="form-control" >
+            <input formControlName="telefono" type="text" class="form-control">
         </div>
     </div>
-
     <div class="row">
-        <div class="col-md12 mb-3">
-            <label for="empresa" class="form-label">Empresa: </label>
+        <div class="col-md-12 mb-3">
+            <label for="Empresa" class="form-label">Empresa</label>
 
             <!-- El título -->
-            <input formControlName="empresa" type="text" class="form-control" >
+            <input formControlName="empresa" type="text" class="form-control">
         </div>
     </div>
 </form>
 
+<!-- Botones de navegación -->
+<div class="row ">
+    <span class="col-7"></span>
+    <button class="btn btn-primary col-2 m-3" routerLink="/contactos">Volver</button>
+    
+    <!-- Desabilita el guardar si hay una operación en curso -->
+    <button class="btn btn-warning col-2 m-3" (click)="guardar()" [disabled]="formulario.pending">Guardar</button>
+</div>
 
 
 <div>
-{{ formulario.valid }}
+Valid {{ formulario.valid }}
+<br>
+Pending {{ formulario.pending }}
 <br>
 {{ formulario.errors| json }}
 <br>
 Nombre: {{ formulario.controls['nombre'].errors | json }}
 <br>
-Apellidos: {{ formulario.controls['nombre'].errors | json }}
+Apellidos: {{ formulario.controls['apellidos'].errors | json }}
 <br>
-Teléfono: {{ formulario.controls['nombre'].errors | json }}
+Teléfono: {{ formulario.controls['telefono'].errors | json }}
 <br>
-Empresa: {{ formulario.controls['nombre'].errors | json }}
+Empresa: {{ formulario.controls['empresa'].errors | json }}
 <br>
 {{ formulario.getRawValue()| json }}
 </div>

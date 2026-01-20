@@ -27,11 +27,11 @@
             <td>{{ contacto.telefono }}</td>
             <td>
                 <!-- Enlace a ver el contacto -->
-                <i [routerLink]="['../ver', contacto.id ]" class="btn btn-success bi bi-eye"></i>
+                <i [routerLink]="['./ver', contacto.id ]" class="btn btn-success bi bi-eye"></i>
             </td>                
             <td>
                 <!-- Enlace a la edición de la tarea -->                                
-                <i [routerLink]="['../editar', contacto.id ]" class="btn btn-warning bi bi-pencil"></i>
+                <i [routerLink]="['./editar', contacto.id ]" class="btn btn-warning bi bi-pencil"></i>
             </td>    
             <td>
                 <!-- Eliminar la contacto -->

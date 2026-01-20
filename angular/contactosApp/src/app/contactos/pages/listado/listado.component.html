@@ -1,2 +1,9 @@
-<app-buscador [placeholder]="'Introduce el término de búsqueda'" (onBusquedaEjecutada)="onBusquedaEjecutada($event)"></app-buscador>
+<div class="row">
+    <app-buscador [placeholder]="'Introduce el término de búsqueda'" (onBusquedaEjecutada)="onBusquedaEjecutada($event)"></app-buscador>
+
+    <button type="button" class="btn btn-primary col-md-2 text-white mb-1" routerLink="./crear">
+        <i class="bi bi-plus-lg text-white"></i>Crear
+    </button> 
+</div>
+
 <app-tabla-contactos [contactos]="contactos" (onBorrarContacto)="onBorrarContacto($event)"></app-tabla-contactos>
