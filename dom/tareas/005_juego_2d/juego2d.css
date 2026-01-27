@@ -1,0 +1,50 @@
+html, body {
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  font-size: 20px;
+}
+
+#info{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#dificultad{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 30px;
+}
+
+#marcador{
+    display: flex;
+    gap: 30px;
+}
+
+#dificultad p:not(:first-child):hover{
+    font-weight: bold;
+}
+
+#temporizador{
+    align-self: center;
+}
+
+#tablero{
+    display: grid;
+    height: 100dvh;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    
+}
+
+#cuadrado {
+  background-color: black;
+  height: 200px;
+  width: 200px;
+  display: block;
+}
+

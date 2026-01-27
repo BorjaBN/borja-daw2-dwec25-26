@@ -21,7 +21,7 @@ const combinacionesGanadoras = [
 
 $(document).ready(function () { 
 
-    mostrarMensaje("Empieza X"); 
+    mostrarMensaje("Empieza X"); //muestra el mensaje inicial
 
     // Registrar eventos 
     $(".casilla").on("click", gestionarJugada); 
@@ -36,10 +36,13 @@ $(document).ready(function () {
 
 function gestionarJugada() {
 
+    //Evita que se usen casillas ocupadas
     if ($(this).text().trim() !== "") return;
 
+    //Marca la casilla con el turno actual
     $(this).text(turnoActual);
 
+    //Comprueba si el jugador actual ha ganado
     if (hayGanador(turnoActual)) {
         mostrarMensaje("Ha ganado " + turnoActual);
         sumarPunto(turnoActual);
@@ -47,6 +50,7 @@ function gestionarJugada() {
         return;
     }
 
+    //Comprueba si hay empate
     if (esEmpate()) {
         
         mostrarMensaje("Empate. Punto aleatorio para un jugador."); 
@@ -60,6 +64,7 @@ function gestionarJugada() {
 
     }
 
+    //Cambia el turno
     turnoActual = turnoActual === "X" ? "O" : "X";
     mostrarMensaje("Turno de " + turnoActual);
 }
@@ -74,6 +79,8 @@ function mostrarMensaje(texto) {
     $("#mensaje").text(texto);
 }
 
+//Obtiene un array con el contenido de las 9 casillas y 
+// compara si coincide con combinacionesGanadorar
 function hayGanador(jugador) {
 
     const valores = $(".casilla").map(function () {
@@ -89,6 +96,7 @@ function hayGanador(jugador) {
     );
 }
 
+//Es empate
 function esEmpate() {
 
     let lleno = true;
@@ -100,6 +108,7 @@ function esEmpate() {
     return lleno;
 }
 
+//Suma puntos al ganador
 function sumarPunto(jugador) {
 
     if (jugador === "X") {
@@ -115,6 +124,7 @@ function sumarPunto(jugador) {
     }
 }
 
+//Limpia las casillas
 function reiniciarTablero() {
 
     $(".casilla").text("");
@@ -133,6 +143,8 @@ function reiniciarTablero() {
  * 
  * @returns 
  */
+
+//Ganador aleatorio
 function ganadorAleatorio() { 
     
     

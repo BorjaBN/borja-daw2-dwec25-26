@@ -17,15 +17,15 @@ $(document).ready(function () {
 
     const $formulario = $("#formulario");
 
-    // Evento submit del formulario
+    // Captura del evento submit del formulario
     $formulario.on("submit", onFormularioSubmit);
 
-    // Campos con ayuda
+    // Se asignan campos con ayuda
     const $camposAyuda = $("#formulario [data-ayuda]");
     $camposAyuda.on("focusin", onInputFocusIn);
     $camposAyuda.on("focusout", onInputFocusOut);
 
-    // Campos con validación
+    // Se asignan campos con validación
     const $camposValidar = $("#formulario [data-validacion]");
     $camposValidar.on("focusout", onInputChange);
 });
@@ -68,6 +68,7 @@ function onFormularioSubmit(evento) {
     evento.target.submit();
 }
 
+//Si no tiene errer, muestra la ayuda
 function onInputFocusIn(evento) {
 
     const $campo = $(evento.target);
@@ -77,6 +78,7 @@ function onInputFocusIn(evento) {
     }
 }
 
+// para borrar la ayuda cuando pierde el "foco"
 function onInputFocusOut(evento) {
 
     const $campo = $(evento.target);
@@ -86,15 +88,20 @@ function onInputFocusOut(evento) {
     }
 }
 
+//Muestra el texto del atributo de ayuda en el elemento de ayuda
 function mostrarAyudaCampo($campo) {
 
     const ayuda = $campo.data("ayuda");
     $AYUDA.text(ayuda);
 }
 
+//
 function onInputChange(evento) {
 
+    // Cojo la lista de las validaciones
     const $campo = $(evento.target);
+
+    //Ejecuta la validacion
     const listaValidaciones = $campo.data("validacion").split(",");
     let errores = 0;
 
@@ -141,13 +148,13 @@ function onInputChange(evento) {
 // ---------------------------------------------------------------------------------------
 
 function mostrarError($campo, mensaje) {
-    $campo.addClass("error");
-    $AYUDA.text(mensaje);
+    $campo.addClass("error"); //añade clase error
+    $AYUDA.text(mensaje); //muestra el mensaje ayuda
 }
 
 function limpiarError($campo) {
-    $campo.removeClass("error");
-    $AYUDA.text("");
+    $campo.removeClass("error"); //quita la clase error
+    $AYUDA.text(""); // quita el mensaje de ayuda
 }
 
 function mensajeError(tipo) {

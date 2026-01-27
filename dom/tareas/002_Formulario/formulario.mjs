@@ -18,20 +18,24 @@ window.addEventListener("load", () => {
  
     // Vamos a gestionar eventos
     //Submit
+    //Se captura el formulario y se asigna el evento submit
     const formulario = document.getElementById("formulario");
     formulario.addEventListener("submit", onFormularioSubmit);
 
 
     // Campos que muestran ayuda
+    //Se asignan eventos a los campos con data-ayuda
     const camposAyuda = document.querySelectorAll("#formulario [data-ayuda]");
     for (let campo of camposAyuda){
 
         //Asigna evento para mostrar la ayuda
-        campo.addEventListener("focusin", onInputFocusIn);
-        campo.addEventListener("focusout", onInputFocusOut);
+        campo.addEventListener("focusin", onInputFocusIn); // muestra la ayuda
+        campo.addEventListener("focusout", onInputFocusOut); // oculta la ayuda
     }
 
     // Asigna el evento para validar el campo cuando cambia
+    // Se asignan validaciones a los campos con data-validacion
+    // cuando pierde el foco se valida
     const camposValidar = document.querySelectorAll("#formulario [data-validacion]");
     for (let campo of camposValidar){
         campo.addEventListener("focusout", onInputChange);
@@ -62,7 +66,7 @@ function onFormularioSubmit(evento){
     const campos = document.querySelectorAll("#formulario [data-validacion]");
     for (let campo of campos) { 
         
-        // Disparamos la validación manualmente 
+        // Disparamos la validación manualmente (valida los campos)
         campo.dispatchEvent(new Event("focusout")); 
         
         // Si el campo tiene la clase error, se para 
@@ -177,15 +181,16 @@ function onInputChange (evento){
 
 
 function mostrarError(campo, mensaje){
-    campo.classList.add("error");
-    ELEMENTO_AYUDA.innerText = mensaje;
+    campo.classList.add("error"); //Añade la clase error
+    ELEMENTO_AYUDA.innerText = mensaje; // Me enseña el mensaje en el elemento ayuda
 }
 
 function limpiarError(campo){
     campo.classList.remove("error");
-    ELEMENTO_AYUDA.innerText = "";
+    ELEMENTO_AYUDA.innerText = ""; //Para limpiar el mensaje de elemento ayuda
 }
 
+// Mi menú
 function mensajeError(tipo) {
 
     switch (tipo) {
