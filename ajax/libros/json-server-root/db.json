@@ -1,0 +1,77 @@
+{
+  "libros": [
+    {
+      "id": 1,
+      "titulo": "El Quijote",
+      "autor": "Miguel de Cervantes",
+      "editorial": "Anaya",
+      "anho_publicacion": 1605,
+      "num_edicion": 1
+    },
+    {
+      "titulo": "El Señor de los Anillos",
+      "autor": "Tolkien",
+      "editorial": "Minotauro",
+      "anho_publicacion": "1605",
+      "num_edicion": "1",
+      "id": 2
+    },
+    {
+      "titulo": "Una Corte de Rosa y Espinas",
+      "autor": "Sarha J Maas",
+      "editorial": "Croos Book",
+      "anho_publicacion": "2015",
+      "num_edicion": "14",
+      "id": 3
+    },
+    {
+      "titulo": "Una Corte de Niebla y Furia",
+      "autor": "Sarha J Maas",
+      "editorial": "Croos Book",
+      "anho_publicacion": "2016",
+      "num_edicion": "1",
+      "id": 4
+    },
+    {
+      "titulo": "Una Corte de Alas y Ruinas",
+      "autor": "Sarha J Maas",
+      "editorial": "Croos Book",
+      "anho_publicacion": "2017",
+      "num_edicion": "5",
+      "id": 5
+    },
+    {
+      "titulo": "Una Corte de Hielo y Estrellas",
+      "autor": "Sarha J Maas",
+      "editorial": "Croos Book",
+      "anho_publicacion": "2018",
+      "num_edicion": "2",
+      "id": 6
+    },
+    {
+      "titulo": "Una Corte de LLamas Plateadas",
+      "autor": "Sarha J Maas",
+      "editorial": "Croos Book",
+      "anho_publicacion": "2021",
+      "num_edicion": "6",
+      "id": 7
+    }
+  ],
+  "users": [
+    {
+      "email": "manolo@mail.com",
+      "password": "$2a$10$yHZqlRkKrzcqllZddQdEi.r1o1aRKFoEyasPGsrBIMLk..j5J4EYy",
+      "id": 1
+    },
+    {
+      "email": "paco@mail.com",
+      "password": "$2a$10$NtByBEzddWZ9bW4TQbX2xe/HGduULQu6c.j2OyVZOjyEm.MH7HpQO",
+      "id": 2
+    },
+    {
+      "email": "juanjo@mail.com",
+      "password": "$2a$10$T5bovzkN4zy8UthpQfSg9OfJ2bU2Hs3PDZTpdl.ufdcg5DBphIzeS",
+      "id": 3
+    }
+  ]
+}
