@@ -1,0 +1,43 @@
+<div class="container mt-4">
+  <h2>Detalles del Libro</h2>
+  
+  <div class="card" *ngIf="libro">
+    <div class="card-body">
+      <div class="row mb-2">
+        <div class="col-3"><strong>ID:</strong></div>
+        <div class="col-9">{{ libro.id }}</div>
+      </div>
+      
+      <div class="row mb-2">
+        <div class="col-3"><strong>Título:</strong></div>
+        <div class="col-9">{{ libro.titulo }}</div>
+      </div>
+      
+      <div class="row mb-2">
+        <div class="col-3"><strong>Autor:</strong></div>
+        <div class="col-9">{{ libro.autor }}</div>
+      </div>
+      
+      <div class="row mb-2">
+        <div class="col-3"><strong>Editorial:</strong></div>
+        <div class="col-9">{{ libro.editorial }}</div>
+      </div>
+      
+      <div class="row mb-2">
+        <div class="col-3"><strong>Año de Publicación:</strong></div>
+        <div class="col-9">{{ libro.anho_publicacion }}</div>
+      </div>
+      
+      <div class="row mb-2">
+        <div class="col-3"><strong>Número de Edición:</strong></div>
+        <div class="col-9">{{ libro.num_edicion }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12">
+      <button class="btn btn-primary" routerLink="/libros">Volver</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<table class="table table-bordered table-striped text-center table-light table-hover">
+
+
+    <!-- Encabezado de la tabla -->
+  <thead class="table text-white bg-primary">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Título</th>
+      <th scope="col">Autor</th>
+      <th scope="col">Editorial</th>
+      <th scope="col">Año</th>
+      <th scope="col">Edición</th>
+      <th scope="col"></th><!-- Mostrar detalles -->
+      <th scope="col"></th><!-- Editar -->
+      <th scope="col"></th><!-- Eliminar libro -->
+    </tr>
+  </thead>
+  
+    <!-- 
+        Cuerpo de la tabla. Aquí es donde se van a insertar las tareas
+    -->
+  <tbody>
+    <tr *ngFor="let libro of libros; let i = index">
+      <td>{{ libro.id }}</td>
+      <td>{{ libro.titulo }}</td>
+      <td>{{ libro.autor }}</td>
+      <td>{{ libro.editorial }}</td>
+      <td>{{ libro.anho_publicacion }}</td>
+      <td>{{ libro.num_edicion }}</td>
+      <td>
+        <!-- Enlace a ver el libro -->
+        <i [routerLink]="['/libros/ver', libro.id]" class="btn btn-success bi bi-eye"></i>
+      </td>
+      <td>
+        <!-- Enlace a la edición de la tarea -->
+        <i [routerLink]="['/libros/editar', libro.id]" class="btn btn-warning bi bi-pencil"></i>
+      </td>
+      <td>
+        <!-- Eliminar el libro -->
+        <i (click)="borrarLibro(i)" class="btn btn-danger bi bi-trash"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="libros.length === 0" class="alert alert-info text-center">
+  No se encontraron libros
+</div>

@@ -1,0 +1,55 @@
+<div class="container-fluid">
+  <div class="row mb-3">
+    <!-- Buscador -->
+    <div class="col-md-10">
+      <app-buscador 
+        [placeholder]="'Buscar libros por título, autor, editorial...'" 
+        (onBusquedaEjecutada)="onBusquedaEjecutada($event)">
+      </app-buscador>
+    </div>
+
+    <!-- Botón crear -->
+    <div class="col-md-2">
+      <button type="button" class="btn btn-primary w-100" routerLink="/libros/crear">
+        <i class="bi bi-plus-lg"></i> Crear Libro
+      </button>
+    </div>
+  </div>
+
+  <!-- Botones de ordenación -->
+  <div class="row mb-2">
+    <div class="col-md-12">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-outline-secondary" (click)="ordenarTituloAsc()">
+          <i class="bi bi-arrow-up"></i> Ordenar A-Z
+        </button>
+        <button type="button" class="btn btn-outline-secondary" (click)="ordenarTituloDesc()">
+          <i class="bi bi-arrow-down"></i> Ordenar Z-A
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabla de libros -->
+  <app-tabla-libros [libros]="librosPaginados" (onBorrarLibro)="onBorrarLibro($event)"></app-tabla-libros>
+  <nav class="mt-3">
+    <ul class="pagination justify-content-center">
+
+      <li class="page-item" [class.disabled]="paginaActual === 1">
+        <button class="page-link" (click)="paginaAnterior()">Anterior</button>
+      </li>
+
+      <li class="page-item disabled">
+        <span class="page-link">
+          Página {{ paginaActual }}
+        </span>
+      </li>
+
+      <li class="page-item">
+        <button class="page-link" (click)="paginaSiguiente()">Siguiente</button>
+      </li>
+
+    </ul>
+  </nav>
+
+</div>

@@ -49,12 +49,44 @@
       "id": 6
     },
     {
+      "id": 7,
       "titulo": "Una Corte de LLamas Plateadas",
       "autor": "Sarha J Maas",
       "editorial": "Croos Book",
       "anho_publicacion": "2021",
-      "num_edicion": "6",
-      "id": 7
+      "num_edicion": "6"
+    },
+    {
+      "id": 8,
+      "titulo": "Inventado por mi persona",
+      "autor": "juanito inventez inventor",
+      "editorial": "inventilandia",
+      "anho_publicacion": 2026,
+      "num_edicion": 1
+    },
+    {
+      "id": 9,
+      "titulo": "Inventado segundo",
+      "autor": "inventor",
+      "editorial": "inventilandia",
+      "anho_publicacion": 2026,
+      "num_edicion": 12
+    },
+    {
+      "id": 10,
+      "titulo": "Invento tres",
+      "autor": "inventor",
+      "editorial": "inventilandia",
+      "anho_publicacion": 2026,
+      "num_edicion": 14
+    },
+    {
+      "id": 11,
+      "titulo": "Invento cuatro",
+      "autor": "inventor",
+      "editorial": "inventilandia",
+      "anho_publicacion": 2026,
+      "num_edicion": 12
     }
   ],
   "users": [

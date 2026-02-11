@@ -1,0 +1,45 @@
+<!-- Configura la barra y asigna el color --> 	
+<nav class="navbar navbar-expand-md navbar-dark bg-primary mb-4">
+
+    <!-- Enlace al dashboard -->
+    <a class="navbar-brand m-1" routerLink="dashboard">
+        <i class="bi bi-book"></i> Biblioteca
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menú desplegable -->
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mr-auto">
+
+            <!-- Libros -->
+            <li class="nav-item active">
+                <a routerLink="dashboard" routerLinkActive="text-warning" class="nav-link">Libros</a>
+            </li>
+
+            <!-- Listado Alfabético -->
+            <li class="nav-item active">
+                <a routerLink="/libros/listado-alfabetico" class="nav-link">Listado alfabético</a>
+            </li>
+
+            <!-- Listado por Campo -->
+            <li class="nav-item active">
+                <a routerLink="/libros/listado-tipos" class="nav-link">Listado por campo</a>
+            </li>
+
+            <!-- Gráfica de editoriales -->
+            <li class="nav-item">
+                <a routerLink="/libros/grafica" class="nav-link">Gráfica</a>
+            </li>
+
+        </ul>
+    </div>
+
+    <!-- Cerrar sesión -->
+    <!-- TODO Cerrar la sesión -->
+    <a class="navbar-brand m-2">
+        <i class="bi bi-box-arrow-right" style="font-size:30px;" (click)="cerrarSesion()"></i>
+    </a>
+</nav>

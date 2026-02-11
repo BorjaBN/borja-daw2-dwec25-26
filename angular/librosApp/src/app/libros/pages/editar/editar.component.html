@@ -1,0 +1,42 @@
+<form (ngSubmit)="guardar()" [formGroup]="formulario" class="container" autocomplete="off">
+    <div class="row">
+        <div class="col-md-12 mb-3">
+            <label for="titulo" class="form-label">Título</label>
+            <input formControlName="titulo" type="text" class="form-control">
+            <span class="form-text text-danger" *ngIf="esCampoNoValido('titulo')">{{ mensajeErrorCampo('titulo') }}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 mb-3">
+            <label for="autor" class="form-label">Autor</label>
+            <input formControlName="autor" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 mb-3">
+            <label for="editorial" class="form-label">Editorial</label>
+            <input formControlName="editorial" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 mb-3">
+            <label for="anho_publicacion" class="form-label">Año de Publicación</label>
+            <input formControlName="anho_publicacion" type="number" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 mb-3">
+            <label for="num_edicion" class="form-label">Número de Edición</label>
+            <input formControlName="num_edicion" type="number" class="form-control">
+        </div>
+    </div>
+</form>
+
+<!-- Botones de navegación -->
+<div class="row ">
+    <span class="col-7"></span>
+    <button class="btn btn-primary col-2 m-3" routerLink="/libros">Volver</button>
+    
+    <!-- Desabilita el guardar si hay una operación en curso -->
+    <button class="btn btn-warning col-2 m-3" (click)="guardar()" [disabled]="formulario.pending">Guardar</button>
+</div>

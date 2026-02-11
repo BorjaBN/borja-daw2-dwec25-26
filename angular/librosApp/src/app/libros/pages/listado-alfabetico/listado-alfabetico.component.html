@@ -1,0 +1,47 @@
+<div class="container-fluid">
+
+  <h3 class="mb-3">Listado alfabético</h3>
+
+  <!-- Botones A-Z -->
+  <div class="d-flex flex-wrap gap-2 mb-3">
+    <button 
+      *ngFor="let letra of alfabeto"
+      class="btn btn-outline-primary btn-sm"
+      (click)="filtrarPorLetra(letra)">
+      {{ letra }}
+    </button>
+
+    <button class="btn btn-secondary btn-sm" (click)="mostrarTodos()">
+      Todos
+    </button>
+  </div>
+
+  <!-- Tabla -->
+  <app-tabla-libros 
+    [libros]="librosPaginados"
+    (onBorrarLibro)="onBorrarLibro($event)">
+  </app-tabla-libros>
+
+  <!-- Paginación -->
+  <nav class="mt-3">
+    <ul class="pagination justify-content-center">
+
+      <li class="page-item" [class.disabled]="paginaActual === 1">
+        <button class="page-link" (click)="paginaAnterior()">Anterior</button>
+      </li>
+
+      <li class="page-item disabled">
+        <span class="page-link">
+          Página {{ paginaActual }}
+        </span>
+      </li>
+
+      <li class="page-item">
+        <button class="page-link" (click)="paginaSiguiente()">Siguiente</button>
+      </li>
+
+    </ul>
+  </nav>
+
+</div>
+
